@@ -1,6 +1,6 @@
 # my-app4
 
-My demo application
+My demo application DEMO
 
 ## Running the application in dev mode
 
