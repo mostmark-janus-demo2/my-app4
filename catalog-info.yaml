@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "my-app4"
+  description: "My demo application"
+  annotations:
+    argocd/app-name: my-app4-dev
+    backstage.io/kubernetes-id: my-app4
+    backstage.io/kubernetes-namespace: my-app4-dev
+    janus-idp.io/tekton-enabled : 'true'
+    github.com/project-slug: mostmark-janus-demo2/my-app4
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - java
+    - quarkus
+  links:
+    - url: https://devspaces.apps.cluster-tf98g.tf98g.sandbox2224.opentlc.com/#https://github.com/mostmark-janus-demo2/my-app4?che-editor=che-incubator/che-code/insiders&devfilePath=.devfile-vscode.yaml
+      title: OpenShift Dev Spaces (VS Code)
+      icon: web
+    - url: https://devspaces.apps.cluster-tf98g.tf98g.sandbox2224.opentlc.com/#https://github.com/mostmark-janus-demo2/my-app4?che-editor=che-incubator/che-idea/latest&devfilePath=.devfile-intellij.yaml
+      title: OpenShift Dev Spaces (JetBrains IntelliJ)
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: "group:default/lantmäteriet"
+  providesApis:
+    - "my-app4"
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: "my-app4"
+  description: "My demo application"
+spec:
+  type: openapi
+  lifecycle: production
+  owner: "group:default/lantmäteriet"
+  definition:
+    $text: ./openapi.yaml
